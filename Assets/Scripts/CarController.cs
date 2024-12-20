@@ -10,12 +10,14 @@ public class CarController : MonoBehaviour
     public InputManager im;
     public List<WheelCollider> throttleWheels;
     public List<WheelCollider> steeringWheels;
-    public float strenghtCoefficient = 20000f;
+    public List<GameObject> wheels;
+    public float strenghtCoefficient = 10000f;
     public float maxTurn = 20f;
 
     private void Start()
     {
         im = GetComponent<InputManager>();
+        
     }
 
     private void FixedUpdate()
@@ -28,7 +30,10 @@ public class CarController : MonoBehaviour
         foreach(WheelCollider wheel in steeringWheels)
         {
             wheel.steerAngle = maxTurn * im.steer;
+
         }
+
+
     }
 
 
